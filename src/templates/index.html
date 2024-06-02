@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Restaurant Apps</title>
+  <link  href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" href="../styles/main.css" />
+</head>
+<body>
+  <a href="#restaurant-list" class="skip-link">Menuju ke konten</a>
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header__title">Hunger Apps</h1>
+        <a id="menu" class="header__menu">☰</a>
+      </div>
+      <nav id="drawer" class="nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="/">Home</a></li>
+          <li class="nav__item"><a href="#">favorite</a></li>
+          <li class="nav__item"><a href="https://www.linkedin.com/in/siti-sifatul-uyun-5b53692b7/">About us</a></li>
+        </ul>
+      </nav>
+    </header>
+
+<main>
+  <h1 id="main-content">Restaurant Apps Starter Project</h1>
+  <img src="../images/heros/hero-image_2.jpg" class="hero-image" alt="Foto restoran" />
+
+  <div id="restaurant-list"></div>
+</main>
+
+<footer>
+  <p>SITI SIFATUL UYUN; 2024 - Hunger Apps</p>
+</footer>
+
+<script>
+const hamburgerButtonElement = document.querySelector('#menu');
+const drawerElement = document.querySelector('.nav');
+
+hamburgerButtonElement.addEventListener('click', event => {
+  drawerElement.classList.toggle('open');
+  event.stopPropagation();
+});
+
+document.querySelector('header').addEventListener('click', event => {
+  drawerElement.classList.remove('open');
+});
+  
+  // Memuat data restoran dari file JSON
+  fetch('../data/DATA.json')
+    .then(response => response.json())
+    .then(data => {
+      const restaurantList = document.getElementById('restaurant-list');
+
+      // Iterasi setiap restoran dalam data JSON
+      data.restaurants.forEach(restaurant => {
+        // Membuat elemen untuk setiap restoran
+        const restaurantElement = document.createElement('div');
+        restaurantElement.classList.add('restaurant');
+
+        // Menambahkan nama restoran
+        const nameElement = document.createElement('h2');
+        nameElement.textContent = restaurant.name;
+        restaurantElement.appendChild(nameElement);
+
+        // Menambahkan gambar restoran
+        const imageElement = document.createElement('img');
+        imageElement.src = restaurant.pictureId;
+        imageElement.alt = restaurant.name;
+        restaurantElement.appendChild(imageElement);
+
+        // Menambahkan deskripsi restoran
+        const descriptionElement = document.createElement('p');
+        descriptionElement.textContent = restaurant.description;
+        descriptionElement.classList.add('description');
+        restaurantElement.appendChild(descriptionElement);
+
+        // Menambahkan rating restoran
+        const ratingElement = document.createElement('p');
+        const stars = '★'.repeat(Math.round(restaurant.rating));
+        ratingElement.innerHTML = `Rating: <span class="rating">${stars}</span>`;
+        restaurantElement.appendChild(ratingElement);
+
+        // Menambahkan restoran ke daftar restoran
+        restaurantList.appendChild(restaurantElement);
+      });
+    })
+    .catch(error => console.error('Error loading restaurant data:', error));
+</script>
+
+</body>
+</html>

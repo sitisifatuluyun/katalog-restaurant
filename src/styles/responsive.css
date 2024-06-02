@@ -1,0 +1,247 @@
+
+.posts {
+    display: grid;
+    grid-row-gap: 16px;
+  }
+  
+
+  /* Tambahkan gaya untuk hamburger */
+  .header__menu {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px; 
+    color: #333;
+    z-index: 1000;
+  }
+  .header__menu span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: #333;
+    margin-bottom: 6px;
+  }
+  
+  /* Gaya untuk ikon hamburger saat dihover */
+  .header__menu:hover span {
+    background-color: #666;
+  }
+  
+  /* Animasi untuk ikon hamburger */
+  .header__menu span {
+    transition: all 0.3s ease;
+  }
+  
+  /* Gaya untuk ikon hamburger saat dihover */
+  .header__menu:hover {
+    opacity: 0.8;
+  }
+ 
+  
+  @media screen and (max-width: 768px) {
+    .header__title {
+      font-size: 3em;
+    }
+  
+    .header__menu {
+      display: block; /* Tampilkan tombol hamburger */
+    }
+  
+    .nav {
+      display: none; /* Sembunyikan daftar navigasi secara default */
+      background-color: #fff; /* Tambahkan warna latar belakang untuk daftar navigasi */
+      padding-top: 20px; /* Tambahkan padding atas untuk daftar navigasi */
+      position: absolute; /* Tambahkan posisi absolut */
+      top: 60px; /* Sesuaikan posisi vertikal */
+      left: 0; /* Geser ke kiri agar sesuai dengan tampilan */
+      width: 100%; /* Lebarkan daftar navigasi */
+    }
+  
+    .nav.open {
+      display: block; /* Tampilkan daftar navigasi saat tombol hamburger diklik */
+    }
+  
+    .nav__list {
+      background-color: #f8f9fa;
+      padding: 20px; 
+      position: static;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      z-index: 1000; /* Hilangkan bullet pada daftar navigasi */
+    }
+  
+    .nav__item {
+      margin-bottom: 10px; /* Tambahkan margin bawah antara setiap item navigasi */
+    }
+  
+    .nav__item a {
+      display: block; /* Tampilkan tautan navigasi sebagai blok */
+      padding: 10px; /* Tambahkan padding pada tautan navigasi */
+      background-color: #f0f0f0; /* Tambahkan warna latar belakang untuk tautan navigasi */
+      text-decoration: none; /* Hilangkan garis bawah dari tautan navigasi */
+      color: #333; /* Ubah warna teks tautan navigasi */
+      border-radius: 5px; /* Tambahkan sudut bulat untuk tautan navigasi */
+    }
+  
+    .nav__item a:hover {
+      background-color: #ccc; /* Ubah warna latar belakang saat tautan navigasi dihover */
+    }
+  }
+    
+    
+      .nav a {
+        padding: 0.5em;
+      }
+    
+      .hero__title {
+        font-size: 28px;
+      }
+    
+      .hero__tagline {
+        font-size: 14px;
+      }
+    
+      .headline__title {
+        font-size: 20px;
+      }
+    
+      .headline__description {
+        font-size: 10px;
+      }
+    
+      .headline__button {
+        margin-top: 16px;
+        padding: 6px 12px;
+      }
+    
+      .latest__label {
+        font-size: 28px;
+      }
+    
+      .post-item__title {
+        font-size: 14px;
+      }
+    
+      .post-item__description {
+        font-size: 10px;
+      }
+        .nav {
+          display: block;
+        }
+
+
+/* Sembunyikan tombol hamburger pada tampilan dekstop */
+@media screen and (min-width: 769px) {
+  .header__menu {
+    display: none;
+  }
+}
+
+/* Media query untuk layar kecil */
+@media screen and (max-width: 499px) {
+  .nav {
+    z-index: 10;
+    background-color: #fff;
+    width: 300px;
+    position: absolute;
+
+    -webkit-transform: translate(-300px, 0);
+    transform: translate(-300px, 0);
+
+    /* Optionally, we animate the drawer. */
+    transition: transform 0.3s ease;
+  }
+
+  .nav.open {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+
+  .nav__item {
+    display: list-item;
+    border-bottom: 1px solid #e0e0e0;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+  
+  @media screen and (min-width: 455px) {
+    .headline__content {
+      padding: 16px 16px;
+    }
+  
+    .headline__title {
+      font-size: 28px;
+    }
+  
+    .headline__description {
+      font-size: 16px;
+    }
+  }
+  
+  @media screen and (min-width: 500px) {
+    .header__menu {
+      display: none;
+    }
+  }
+  
+  @media screen and (min-width: 650px) {
+    .headline__content {
+      margin: 0 auto;
+      max-width: 650px;
+    }
+  
+    .post-item__content {
+      padding: 16px 32px 32px 32px;
+    }
+  
+    .post-item__title {
+      font-size: 18px;
+    }
+  
+    .post-item__description {
+      font-size: 14px;
+    }
+  }
+  
+  @media screen and (min-width: 700px) {
+    .posts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 10px;
+      grid-row-gap: 16px;
+    }
+  }
+  
+  @media screen and (min-width: 800px) {
+    .nav__list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+  }
+  
+  @media screen and (min-width: 900px) {
+    .headline {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .headline__content {
+      padding: 16px 32px;
+    }
+  
+    .posts {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+  
+  @media screen and (min-width: 1200px) {
+    main {
+      max-width: 1200px;
+    }
+  }
+  
