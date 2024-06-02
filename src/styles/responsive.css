@@ -63,7 +63,6 @@
     }
   
     .nav__list {
-      background-color: #f8f9fa;
       padding: 20px; 
       position: static;
       top: 60px;
@@ -83,10 +82,6 @@
       text-decoration: none; /* Hilangkan garis bawah dari tautan navigasi */
       color: #333; /* Ubah warna teks tautan navigasi */
       border-radius: 5px; /* Tambahkan sudut bulat untuk tautan navigasi */
-    }
-  
-    .nav__item a:hover {
-      background-color: #ccc; /* Ubah warna latar belakang saat tautan navigasi dihover */
     }
   }
     
@@ -143,7 +138,7 @@
 @media screen and (max-width: 499px) {
   .nav {
     z-index: 10;
-    background-color: #fff;
+    background-color: burlywood;
     width: 300px;
     position: absolute;
 

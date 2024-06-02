@@ -19,3 +19,43 @@ hero.addEventListener('click', function () {
 main.addEventListener('click', function () {
   drawer.classList.remove('open');
 });
+
+fetch('../data/DATA.json')
+.then(response => response.json())
+.then(data => {
+  const restaurantList = document.getElementById('restaurant-list');
+
+  // Iterasi setiap restoran dalam data JSON
+  data.restaurants.forEach(restaurant => {
+    // Membuat elemen untuk setiap restoran
+    const restaurantElement = document.createElement('div');
+    restaurantElement.classList.add('restaurant');
+
+    // Menambahkan nama restoran
+    const nameElement = document.createElement('h2');
+    nameElement.textContent = restaurant.name;
+    restaurantElement.appendChild(nameElement);
+
+    // Menambahkan gambar restoran
+    const imageElement = document.createElement('img');
+    imageElement.src = restaurant.pictureId;
+    imageElement.alt = restaurant.name;
+    restaurantElement.appendChild(imageElement);
+
+    // Menambahkan deskripsi restoran
+    const descriptionElement = document.createElement('p');
+    descriptionElement.textContent = restaurant.description;
+    descriptionElement.classList.add('description');
+    restaurantElement.appendChild(descriptionElement);
+
+    // Menambahkan rating restoran
+    const ratingElement = document.createElement('p');
+    const stars = '★'.repeat(Math.round(restaurant.rating));
+    ratingElement.innerHTML = `Rating: <span class="rating">${stars}</span>`;
+    restaurantElement.appendChild(ratingElement);
+
+    // Menambahkan restoran ke daftar restoran
+    restaurantList.appendChild(restaurantElement);
+  });
+})
+.catch(error => console.error('Error loading restaurant data:', error));
