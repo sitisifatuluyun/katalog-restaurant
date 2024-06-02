@@ -3,7 +3,7 @@ import '../styles/main.css';
 import '../styles/responsive.css';
 
 const menu = document.querySelector('.header__menu'); // Memilih tombol hamburger dengan kelas header__menu
-const hero = document.querySelector('.hero');
+const hero = document.querySelector('.hero-image');
 const main = document.querySelector('main'); // Memilih elemen main
 const drawer = document.querySelector('#drawer'); // Memilih elemen navigasi dengan id drawer
 

@@ -172,13 +172,14 @@ textarea {
 }
 
 #restaurant-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Mengatur grid dengan lebar minimum 300px */
+  grid-gap: 20px; /* Jarak antar grid */
 }
 
+
 .restaurant {
-  width: calc(33.33% - 50px); /* 50% lebar kolom dengan jarak sisi 20px */
+  width: calc(33.33% - 50px);
   margin: 10px; 
   padding: 5px; 
   border: 1px solid #ddd; 
