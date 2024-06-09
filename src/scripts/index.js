@@ -1,26 +1,35 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
 import '../styles/responsive.css';
+import app from './views/app';
 
 const menu = document.querySelector('.header__menu'); // Memilih tombol hamburger dengan kelas header__menu
 const hero = document.querySelector('.hero-image');
 const main = document.querySelector('main'); // Memilih elemen main
 const drawer = document.querySelector('#drawer'); // Memilih elemen navigasi dengan id drawer
 
-menu.addEventListener('click', function (event) {
+window.addEventListener('hashchange', () => {
+  app.renderPage();
+});
+ 
+window.addEventListener('load', () => {
+  app.renderPage();
+});
+
+menu.addEventListener('click', (event) => {
   drawer.classList.toggle('open');
   event.stopPropagation();
 });
 
-hero.addEventListener('click', function () {
+hero.addEventListener('click', () => {
   drawer.classList.remove('open');
 });
 
-main.addEventListener('click', function () {
+main.addEventListener('click', () => {
   drawer.classList.remove('open');
 });
 
-fetch('../data/DATA.json')
+fetch('https://restaurant-api.dicoding.dev/list')
 .then(response => response.json())
 .then(data => {
   const restaurantList = document.getElementById('restaurant-list');
@@ -30,6 +39,8 @@ fetch('../data/DATA.json')
     // Membuat elemen untuk setiap restoran
     const restaurantElement = document.createElement('div');
     restaurantElement.classList.add('restaurant');
+    // Menambahkan tabindex pada item restoran
+    restaurantElement.tabIndex = 0;
 
     // Menambahkan nama restoran
     const nameElement = document.createElement('h2');

@@ -49,13 +49,13 @@
     }
   
     .nav {
-      display: none; /* Sembunyikan daftar navigasi secara default */
-      background-color: #fff; /* Tambahkan warna latar belakang untuk daftar navigasi */
-      padding-top: 20px; /* Tambahkan padding atas untuk daftar navigasi */
-      position: absolute; /* Tambahkan posisi absolut */
-      top: 60px; /* Sesuaikan posisi vertikal */
-      left: 0; /* Geser ke kiri agar sesuai dengan tampilan */
-      width: 100%; /* Lebarkan daftar navigasi */
+      display: none; 
+      background-color: #fff; 
+      padding-top: 20px; 
+      position: absolute; 
+      top: 60px;
+      left: 0; 
+      width: 100%;
     }
   
     .nav.open {
@@ -122,10 +122,6 @@
       .post-item__description {
         font-size: 10px;
       }
-        .nav {
-          display: block;
-        }
-
 
 /* Sembunyikan tombol hamburger pada tampilan dekstop */
 @media screen and (min-width: 769px) {
